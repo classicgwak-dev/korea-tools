@@ -26,7 +26,7 @@ class VisaCalculator extends BaseCalculator {
         const expireDate = new Date(entryDate);
         
         // 비자 기간 계산 (입국 당일 포함 여부에 따라 필요시 조정 가능)
-        expireDate.setDate(entryDate.getDate() + (visaDays - 1);
+        expireDate.setDate(entryDate.getDate() + (visaDays - 1));
 
         // 결과 출력
         const departDateElem = document.getElementById('departDate');
