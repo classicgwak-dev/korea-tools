@@ -1,17 +1,87 @@
-:root {
-    --primary-blue: #1a2a6c;
-    --accent-gold: #d4af37;
-    --error-red: #e63946;
-    --bg-gradient: linear-gradient(135deg, #16222a 0%, #3a6073 100%);
-    --card-shadow: 0 20px 40px rgba(0,0,0,0.3);
+
+/* =========================
+   SAAS DASHBOARD CARD
+========================= */
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 
-/* 이제 아래 스타일에서 var(--primary-blue) 식으로 사용하면 됩니다. */
-.main-btn {
-    background-color: var(--primary-blue);
-    border-radius: 12px;
-    transition: 0.3s;
+@media (min-width: 768px) {
+    .tool-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
+
+/* MAIN CARD */
+.tool-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* TOP ACCENT LINE (SaaS 느낌 핵심) */
+.tool-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold));
+}
+
+/* HOVER EFFECT */
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* TITLE */
+.tool-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* DESCRIPTION */
+.tool-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 14px;
+}
+
+/* BUTTON (SAAS STYLE) */
+.main-btn {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
 .main-btn:hover {
-    background-color: var(--accent-gold);
+    background: var(--accent-gold);
+    color: #000;
+}
+
+/* BADGE */
+.badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(26, 42, 108, 0.1);
+    color: var(--primary-blue);
+    margin-bottom: 8px;
 }
