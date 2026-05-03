@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visa Calculator</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Korea Visa Calculator</h2>
+
+<label>Entry Date</label> <input type="date" id="entryDate">
+
+<label>Visa Type</label> <select id="visaType"> <option value="90">Tourist (90 days)</option> <option value="30">Short Stay (30 days)</option> <option value="180">Long Stay (180 days)</option> </select>
+
+<button onclick="calculateVisa()">Calculate</button>
+
+  <div id="result"></div>
+</div>
+
+<script src="../js/visa.js"></script>
+
+</body>
+</html>
