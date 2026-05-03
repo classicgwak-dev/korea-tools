@@ -1,25 +1,52 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Visa Calculator</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korea Visa Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<div class="container">
-  <h2>Korea Visa Calculator</h2>
+<div class="visa-calc-card">
+    <div class="deco-icon-top"><i class="fas fa-landmark"></i></div>
+    
+    <h2 class="calc-title">Korea Visa Calculator</h2>
 
-<label>Entry Date</label> <input type="date" id="entryDate">
+    <div class="input-section">
+        <div class="field-box">
+            <label><i class="fas fa-calendar-alt"></i> Entry Date</label>
+            <input type="date" id="entryDate">
+        </div>
 
-<label>Visa Type</label> <select id="visaType"> <option value="90">Tourist (90 days)</option> <option value="30">Short Stay (30 days)</option> <option value="180">Long Stay (180 days)</option> </select>
+        <div class="field-box">
+            <label><i class="fas fa-passport"></i> Visa Type</label>
+            <select id="visaType">
+                <option value="30">Tourist (30 Days)</option>
+                <option value="90" selected>Tourist (90 Days)</option>
+                <option value="180">Long-term (180 Days)</option>
+            </select>
+        </div>
+    </div>
 
-<button onclick="calculateVisa()">Calculate</button>
+    <button id="calculateBtn" class="calc-btn">Calculate</button>
 
-  <div id="result"></div>
+    <div id="resultArea" class="result-display hidden">
+        <div class="result-row">
+            <span class="res-label">Must Depart By:</span>
+            <span id="departDate" class="res-value date-highlight"></span>
+        </div>
+        <div class="result-row last">
+            <span class="res-label">Remaining:</span>
+            <span id="remainingDays" class="res-value"></span>
+        </div>
+    </div>
+
+    <div class="deco-icon-bottom"><i class="fas fa-fan"></i></div>
 </div>
 
+<script src="../js/main.js"></script>
 <script src="../js/visa.js"></script>
 
 </body>
