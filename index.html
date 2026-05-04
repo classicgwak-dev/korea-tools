@@ -1,26 +1,86 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Korea Visa Calculator</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Korea Life Tools</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+
+    .iframe-container {
+      margin-top: 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: white;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h2>🇰🇷 Korea Visa Calculator</h2>
+<h2>Korea Life Tools</h2>
 
-<label>Entry Date</label> <input type="date" id="entryDate">
+<div class="tool-grid">
 
-<label>Visa Type</label> <select id="visaType"> <option value="90">Tourist (90 days)</option> <option value="30">Short Stay (30 days)</option> <option value="180">Long Stay (180 days)</option> </select>
+  <!-- Salary Calculator 카드 -->
+  <div class="tool-card">
+    <div class="badge">HOT</div>
+    <div class="tool-title">Salary Calculator</div>
+    <div class="tool-desc">Calculate your real salary after tax in Korea</div>
 
-<button onclick="calculate()">Calculate</button>
+    <button class="main-btn" onclick="loadTool('salary')">
+      Use Tool
+    </button>
+  </div>
 
-  <div id="result"></div>
+  <!-- Visa Calculator 카드 -->
+  <div class="tool-card">
+    <div class="badge">POPULAR</div>
+    <div class="tool-title">Visa Calculator</div>
+    <div class="tool-desc">Check your stay duration in Korea</div>
+
+    <button class="main-btn" onclick="loadTool('visa')">
+      Use Tool
+    </button>
+  </div>
+
 </div>
 
-<script src="script.js"></script>
+<!-- 🔥 iframe 영역 -->
+<div class="iframe-container" id="viewer" style="display:none;">
+  <iframe id="toolFrame"></iframe>
+</div>
+
+<script>
+function loadTool(tool) {
+  const frame = document.getElementById('toolFrame');
+  const viewer = document.getElementById('viewer');
+
+  if (tool === 'salary') {
+    frame.src = 'tools/salary.html';
+  } else if (tool === 'visa') {
+    frame.src = 'tools/visa.html';
+  }
+
+  viewer.style.display = 'block';
+
+  // 스크롤 자동 이동 (UX 핵심)
+  viewer.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
