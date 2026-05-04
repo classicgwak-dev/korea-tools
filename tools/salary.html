@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Korea Salary Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 외부 CSS (선택) -->
+  <link rel="stylesheet" href="https://yourname.github.io/style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+    }
+
+    button {
+      background: #1a2a6c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f4ff;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin: 6px 0;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .net {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a2a6c;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🇰🇷 Salary Calculator</h1>
+
+  <!-- 입력 -->
+  <input type="number" id="salary" placeholder="Monthly Salary (KRW)">
+
+  <button onclick="calculateSalary()">Calculate</button>
+
+  <!-- 결과 -->
+  <div class="result" id="result">
+
+    <div class="row">
+      <span>Pension</span>
+      <span id="pension">-</span>
+    </div>
+
+    <div class="row">
+      <span>Health Insurance</span>
+      <span id="health">-</span>
+    </div>
+
+    <div class="row">
+      <span>Employment Insurance</span>
+      <span id="employment">-</span>
+    </div>
+
+    <div class="row">
+      <span>Tax</span>
+      <span id="tax">-</span>
+    </div>
+
+    <hr>
+
+    <div class="row total">
+      <span>Total Deduction</span>
+      <span id="total">-</span>
+    </div>
+
+    <div class="row net">
+      <span>Take-home Pay</span>
+      <span id="net">-</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- 🔥 JS 연결 -->
+<script src="../js/calculator.js"></script>
+
+</body>
+</html>
