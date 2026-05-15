@@ -1,6 +1,29 @@
+:root {
+    --primary-blue: #1a2a6c;
+    --accent-gold: #fdbb2d;
+    --bg-light: #f5f7fb;
+    --text-dark: #222;
+}
 
 /* =========================
-   SAAS DASHBOARD CARD
+   GLOBAL
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+/* =========================
+   TOOL GRID
 ========================= */
 
 .tool-grid {
@@ -15,7 +38,10 @@
     }
 }
 
-/* MAIN CARD */
+/* =========================
+   SAAS DASHBOARD CARD
+========================= */
+
 .tool-card {
     background: #ffffff;
     border-radius: 16px;
@@ -27,7 +53,8 @@
     overflow: hidden;
 }
 
-/* TOP ACCENT LINE (SaaS 느낌 핵심) */
+/* TOP ACCENT LINE */
+
 .tool-card::before {
     content: "";
     position: absolute;
@@ -35,30 +62,40 @@
     left: 0;
     height: 4px;
     width: 100%;
-    background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold));
+    background: linear-gradient(
+        90deg,
+        var(--primary-blue),
+        var(--accent-gold)
+    );
 }
 
 /* HOVER EFFECT */
+
 .tool-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
-/* TITLE */
+/* =========================
+   CARD CONTENT
+========================= */
+
 .tool-title {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 6px;
 }
 
-/* DESCRIPTION */
 .tool-desc {
     font-size: 14px;
     color: #666;
     margin-bottom: 14px;
 }
 
-/* BUTTON (SAAS STYLE) */
+/* =========================
+   BUTTON
+========================= */
+
 .main-btn {
     display: inline-block;
     padding: 10px 14px;
@@ -68,6 +105,8 @@
     text-decoration: none;
     font-size: 14px;
     transition: 0.2s;
+    border: none;
+    cursor: pointer;
 }
 
 .main-btn:hover {
@@ -75,7 +114,10 @@
     color: #000;
 }
 
-/* BADGE */
+/* =========================
+   BADGE
+========================= */
+
 .badge {
     display: inline-block;
     font-size: 11px;
@@ -84,4 +126,76 @@
     background: rgba(26, 42, 108, 0.1);
     color: var(--primary-blue);
     margin-bottom: 8px;
+}
+
+/* =========================
+   FORM UI
+========================= */
+
+.form-container {
+    max-width: 500px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-input,
+.form-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.form-input {
+    border: 1px solid #ddd;
+    display: block;
+}
+
+.form-button {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    transition: 0.2s;
+}
+
+.form-button:hover {
+    background: var(--accent-gold);
+    color: #000;
+}
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f4ff;
+    border-radius: 12px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.result-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.result-highlight {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-top: 10px;
 }
