@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Korea Rent Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 외부 CSS 연결 -->
+  <link rel="stylesheet" href="https://classicgwak-dev.github.io/korea-tools/css/style.css">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+  <h1 style="text-align:center;">
+    🏠 Korea Rent Calculator
+  </h1>
+
+  <!-- 입력 -->
+
+  <input 
+    type="number"
+    id="deposit"
+    class="form-input"
+    placeholder="Deposit (KRW)"
+  >
+
+  <input 
+    type="number"
+    id="rent"
+    class="form-input"
+    placeholder="Monthly Rent (KRW)"
+  >
+
+  <input 
+    type="number"
+    id="maintenance"
+    class="form-input"
+    placeholder="Maintenance Fee (KRW)"
+  >
+
+  <button 
+    class="form-button"
+    onclick="calculateRent()"
+  >
+    Calculate
+  </button>
+
+  <!-- 결과 -->
+
+  <div 
+    class="result-box"
+    id="result"
+    style="display:none;"
+  >
+
+    <div class="result-row">
+      <span>Deposit</span>
+      <span id="depositResult">-</span>
+    </div>
+
+    <div class="result-row">
+      <span>Monthly Rent</span>
+      <span id="rentResult">-</span>
+    </div>
+
+    <div class="result-row">
+      <span>Maintenance Fee</span>
+      <span id="maintenanceResult">-</span>
+    </div>
+
+    <hr>
+
+    <div class="result-row result-total">
+      <span>Total Monthly Cost</span>
+      <span id="totalCost">-</span>
+    </div>
+
+    <div class="result-row result-highlight">
+      <span>Estimated USD</span>
+      <span id="usdCost">-</span>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function formatKRW(num) {
+  return Number(num).toLocaleString('en-US') + ' KRW';
+}
+
+function calculateRent() {
+
+  const deposit =
+    parseFloat(document.getElementById('deposit').value) || 0;
+
+  const rent =
+    parseFloat(document.getElementById('rent').value) || 0;
+
+  const maintenance =
+    parseFloat(document.getElementById('maintenance').value) || 0;
+
+  const total = rent + maintenance;
+
+  // 대략 환율
+  const usd = total / 1380;
+
+  document.getElementById('depositResult').innerText =
+    formatKRW(deposit);
+
+  document.getElementById('rentResult').innerText =
+    formatKRW(rent);
+
+  document.getElementById('maintenanceResult').innerText =
+    formatKRW(maintenance);
+
+  document.getElementById('totalCost').innerText =
+    formatKRW(total);
+
+  document.getElementById('usdCost').innerText =
+    '$' + usd.toFixed(2);
+
+  document.getElementById('result').style.display = 'block';
+}
+
+</script>
+
+</body>
+</html>
